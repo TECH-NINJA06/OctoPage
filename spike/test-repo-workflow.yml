@@ -1,0 +1,40 @@
+# Upload this into the throwaway test repo as .github/workflows/spike.yml, and upload octospike.py anywhere in it.
+# It measures the repo it runs in with the workflow's built-in token, so no personal token is needed.
+# Keep it out of the OctoPage project repo: there it would upload ~110 MB of test pages into the project.
+name: spike
+
+on:
+  workflow_dispatch:
+    inputs:
+      scale:
+        description: "Sample-count multiplier (0.25 for a quick run)"
+        default: "1"
+
+permissions:
+  contents: write
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Run transport spike
+        env:
+          OCTOSPIKE_TOKEN: ${{ github.token }}
+          SCALE: ${{ inputs.scale }}
+        run: |
+          script=$(find . -name octospike.py -not -path "./.git/*" | head -n 1)
+          if [ -z "$script" ]; then
+            echo "::error::octospike.py is not in this repo. Upload it (any folder works) and run again."
+            find . -not -path "./.git/*" -type f
+            exit 1
+          fi
+          echo "Using $script with $(python3 --version) and $(git --version)"
+          python3 "$script" run --repo "$GITHUB_REPOSITORY" --region github-actions --scale "${SCALE:-1}" --out results
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: spike-results
+          path: results/

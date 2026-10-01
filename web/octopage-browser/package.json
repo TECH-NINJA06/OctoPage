@@ -1,0 +1,12 @@
+{
+  "name": "@octopage/browser",
+  "description": "Query an OctoPage database kept in a public GitHub repository, read-only, from a browser",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/octopage.mjs",
+  "files": ["src"],
+  "dependencies": {
+    "@sqlite.org/sqlite-wasm": "3.53.4-build1"
+  }
+}

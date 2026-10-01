@@ -1,0 +1,25 @@
+tree 222bdbbd85d3ae2517bc52d0d1591b44edc4fed0
+parent 58e89dbeab3773393c6935fc17ca3e727567d321
+author Harsh Telang <125661668+TECH-NINJA06@users.noreply.github.com> 1790530190 +0530
+committer GitHub <noreply@github.com> 1790530190 +0530
+gpgsig -----BEGIN PGP SIGNATURE-----
+ 
+ wsFcBAABCAAQBQJquVKOCRC1aQ7uu5UhlAAAGQsQACnqGE+U48FjyWMdkTBsTPq4
+ 9/+ZS8FliFK/wCTyfRQNR8i6HcOT4MtjGPN9VN5lYTsInF6mxLgq+Rkcyxnpv5d1
+ nlIHPks6e5Tk6MyJy9JGljOrLbFU9NbDb6JuoVLa3YZsobLIt3oO16Uc1gFFqbu6
+ xTYkYYaGUOdyFdzYIEEW7VTb/9uoxnjJ9IrsX7kdw4+HOasWaJ9kXzfphWVaKIj6
+ vKleveJjeciwj8+GHTsb4PztKDVTXF/15QmWftRZ0HNpk0NxQ/T5E+wvgudq7teH
+ LuyBgPlbh5KfN1wmsSm0BjG0wGRY9AuQeaoiA7ep5Hm/oLtt/6aJ6HhMadpODpd/
+ YA3cwJrJxDSpq9EqcQ8tXxYx3i7g5JXDD6ALWCF2XtwcWiLbI9otMk821a+eIsF3
+ aIOeX09wZepwhfnCjZctHhtu9PAr5t8VSkkiEO0Ldq3kezvUvrcEA3y7Ym6V5OOP
+ d0L0OqMz3vhRMXRO/Gjcap5JR6ttIOBpf7Oj5IfrdRAytveIhrLVCr9mkqAvVTIW
+ VI9AGRRgJ9Yq10Xf8wgLHYuFlTKV/Oe8odTwhi7o4d2dPwLBZ4mpJG5TBdnYRumQ
+ DaleTvB11J1RvslY0hcY17mwvOrm8Cf6hxeN/uW2w7g2IXqXTLT9xkb9s2DT69D6
+ b/RXzOTxc20TH/3uJENj
+ =pR+4
+ -----END PGP SIGNATURE-----
+ 
+
+Update spike workflow actions and instructions
+
+Updated the spike workflow to use actions/checkout@v7 and actions/upload-artifact@v7. Clarified instructions for octospike.py placement.

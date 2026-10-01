@@ -1,0 +1,23 @@
+[package]
+name = "octopage-conformance"
+description = "The SQL suite every OctoPage interface must pass: SQLite's logic tests, parsed once, checked the way SQLite's reference runner checks them"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+md-5 = "0.10.6"
+octopage = { path = "../octopage" }
+rusqlite = { version = "0.40.2", features = ["bundled"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+
+[dev-dependencies]
+axum = "0.8.9"
+octopage-ops = { path = "../octopage-ops" }
+octopage-testkit = { path = "../octopage-testkit" }
+tokio = { version = "1.53.1", features = ["full"] }

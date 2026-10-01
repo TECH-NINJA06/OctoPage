@@ -1,0 +1,14 @@
+language = "C"
+include_guard = "OCTOPAGE_H"
+autogen_warning = "/* Generated from crates/octopage-ffi/src/lib.rs by cbindgen when the crate builds: do not edit. */"
+include_version = false
+cpp_compat = true
+usize_is_size_t = true
+documentation = true
+documentation_style = "c99"
+style = "type"
+sys_includes = ["stddef.h", "stdint.h"]
+no_includes = true
+
+[export]
+item_types = ["constants", "globals", "enums", "structs", "unions", "typedefs", "opaque", "functions"]

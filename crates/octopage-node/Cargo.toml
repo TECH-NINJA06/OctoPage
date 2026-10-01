@@ -1,0 +1,31 @@
+[package]
+name = "octopage-node"
+description = "OctoPage for Node.js: a promise-based API over the Rust engine (napi-rs)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[lib]
+# Node loads the shared library, renamed to octopage.node. The rlib makes `cargo test` build
+# it before the JavaScript tests run.
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+napi = { version = "3.13.0", default-features = false, features = ["napi6"] }
+napi-derive = "3.6.9"
+octopage = { path = "../octopage" }
+octopage-pagestore = { path = "../octopage-pagestore" }
+rusqlite = { version = "0.40.2", features = ["bundled"] }
+tokio = { version = "1.53.1", features = ["rt-multi-thread"] }
+
+[build-dependencies]
+napi-build = "2.5.0"
+
+[dev-dependencies]
+octopage-conformance = { path = "../octopage-conformance" }
+octopage-testkit = { path = "../octopage-testkit" }
+tokio = { version = "1.53.1", features = ["full"] }

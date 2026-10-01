@@ -1,0 +1,10 @@
+# Only sources go into the image build.
+.git
+target
+**/node_modules
+**/dist
+**/__pycache__
+spike
+*.pdf
+.env
+*.pem

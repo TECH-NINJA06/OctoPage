@@ -1,0 +1,26 @@
+[package]
+name = "octopage-cli"
+description = "The octopage shell: SQL on a database kept in a GitHub repository"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "octopage"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.6.7", features = ["derive", "env"] }
+octopage = { path = "../octopage" }
+octopage-ops = { path = "../octopage-ops" }
+octopage-pagestore = { path = "../octopage-pagestore" }
+rpassword = "7"
+rustyline = "18.0.1"
+tokio = { version = "1.53.1", features = ["rt-multi-thread"] }
+
+[dev-dependencies]
+octopage-testkit = { path = "../octopage-testkit" }

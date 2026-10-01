@@ -1,0 +1,15 @@
+{
+  "name": "octopage",
+  "description": "A relational database kept in a GitHub repository (SQLite on git)",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": ["index.js", "index.d.ts", "octopage.node"],
+  "engines": { "node": ">=18" },
+  "napi": { "binaryName": "octopage" },
+  "scripts": {
+    "build": "cargo build --release -p octopage-node",
+    "test": "cargo test -p octopage-node"
+  }
+}

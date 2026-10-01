@@ -1,0 +1,27 @@
+[package]
+name = "octopage-kv"
+description = "A key-value store on the OctoPage page store, and the octopage-kv CLI"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "octopage-kv"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.6.7", features = ["derive", "env"] }
+fastrand = "2.5.0"
+octopage-git = { path = "../octopage-git" }
+octopage-pagestore = { path = "../octopage-pagestore" }
+serde_json = "1.0.151"
+thiserror = "2.0.21"
+tokio = { version = "1.53.1", features = ["rt-multi-thread", "macros", "time"] }
+
+[dev-dependencies]
+octopage-testkit = { path = "../octopage-testkit" }
+tempfile = "3.27.0"

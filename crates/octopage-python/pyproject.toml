@@ -1,0 +1,20 @@
+[build-system]
+requires = ["maturin>=1.7,<2"]
+build-backend = "maturin"
+
+[project]
+name = "octopage"
+description = "A relational database kept in a GitHub repository (SQLite on git), DB-API 2.0 style"
+requires-python = ">=3.9"
+license = { text = "Proprietary" }
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Database",
+]
+dynamic = ["version"]
+
+[tool.maturin]
+python-source = "python"
+module-name = "octopage._octopage"
+features = ["extension-module"]

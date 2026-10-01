@@ -1,0 +1,49 @@
+# The OctoPage service on Fly.io: one machine with a volume for its metadata and page caches.
+# docs/deploy.md has the steps (app, volume, secrets); the secrets are never in this file.
+
+app = "octopage"               # change to your Fly app's name
+primary_region = "iad"         # near GitHub's servers, where every page read and commit goes
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  OCTOPAGE_PUBLIC_URL = "https://octopage.fly.dev"   # the address users reach it at
+  OCTOPAGE_BUDGET_PER_HOUR = "4000"
+  # Metrics on Fly's private network only: their per-installation counts are not public.
+  OCTOPAGE_METRICS_LISTEN = "[::]:9091"
+  RUST_LOG = "info"
+
+[[mounts]]
+  source = "octopage_data"
+  destination = "/data"
+  initial_size = "10gb"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  # One instance serves every tenant: its metadata is on the volume, and webhooks must reach
+  # it at any time, so it never stops.
+  auto_stop_machines = "off"
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
+
+  [[http_service.checks]]
+    grace_period = "15s"
+    interval = "30s"
+    method = "GET"
+    path = "/readyz"
+    timeout = "5s"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "1gb"
+
+[metrics]
+  port = 9091
+  path = "/metrics"

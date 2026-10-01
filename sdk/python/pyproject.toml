@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "octopage-client"
+dynamic = ["version"]
+description = "Client for the OctoPage service: SQL on databases kept in your GitHub repositories"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Proprietary" }
+dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Database",
+    "Private :: Do Not Upload",
+]
+
+[tool.hatch.version]
+path = "octopage_client/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["octopage_client"]

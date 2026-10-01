@@ -1,0 +1,44 @@
+[package]
+name = "octopage-server"
+description = "The OctoPage service: a multi-tenant HTTP API over databases kept in users' GitHub repositories, reached through a GitHub App"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "octopage-server"
+path = "src/main.rs"
+
+[dependencies]
+axum = "0.8.9"
+base64 = "0.22"
+bytes = "1.12.1"
+chacha20poly1305 = "0.11.0"
+fastrand = "2.5.0"
+getrandom = "0.3.4"
+hmac = "0.13.0"
+octopage = { path = "../octopage" }
+octopage-git = { path = "../octopage-git" }
+octopage-ops = { path = "../octopage-ops" }
+octopage-pagestore = { path = "../octopage-pagestore" }
+reqwest = { version = "0.13.5", features = ["json", "form"] }
+rsa = { version = "0.9.10", features = ["sha2", "getrandom"] }
+rusqlite = { version = "0.40.2", features = ["bundled"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+sha2 = "0.11.0"
+thiserror = "2.0.21"
+tokio = { version = "1.53.1", features = ["full"] }
+tower-http = { version = "0.6.11", features = ["fs"] }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[dev-dependencies]
+octopage-conformance = { path = "../octopage-conformance" }
+octopage-testkit = { path = "../octopage-testkit" }
+tempfile = "3.27.0"
+tokio = { version = "1.53.1", features = ["full", "test-util"] }

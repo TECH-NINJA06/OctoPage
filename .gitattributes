@@ -1,0 +1,5 @@
+# Scripts that run inside Linux containers and runners keep LF endings on every checkout,
+# Windows included (a CRLF shell script fails there).
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.yml text eol=lf

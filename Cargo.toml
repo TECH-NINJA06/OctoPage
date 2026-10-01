@@ -1,0 +1,36 @@
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.97"
+publish = false
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+# Debug builds keep line numbers (for backtraces) but not full debug info, and dependencies
+# none: with full debug info every test binary is ~120 MB of symbols.
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+debug = false
+
+# Key derivation, ciphers and compression are far too slow unoptimized (Argon2 at 64 MiB takes
+# many seconds in a plain debug build).
+[profile.dev.package]
+argon2 = { opt-level = 3 }
+blake2 = { opt-level = 3 }
+chacha20 = { opt-level = 3 }
+poly1305 = { opt-level = 3 }
+zstd-sys = { opt-level = 3 }
+sha2 = { opt-level = 3 }
+# RSA (GitHub App tokens): key generation in the tests takes seconds unoptimized.
+num-bigint-dig = { opt-level = 3 }
+rsa = { opt-level = 3 }

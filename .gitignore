@@ -1,0 +1,24 @@
+/target
+__pycache__/
+*.pyc
+
+# GitHub App private keys and tokens must never be committed
+*.pem
+.env
+node_modules/
+
+# Tests and test fixtures
+**/tests/
+**/test/
+*.test
+*.test.*
+
+# Documentation and nested README files
+**/docs/
+**/README*
+!/README.md
+
+# Build output
+sdk/typescript/dist/
+web/dashboard/dist/
+*.tsbuildinfo

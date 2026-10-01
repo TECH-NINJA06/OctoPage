@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OctoPage in the browser</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { margin: 0 auto; max-width: 900px; padding: 16px; }
+    form { display: grid; gap: 8px; }
+    textarea { font-family: ui-monospace, monospace; min-height: 5em; }
+    table { border-collapse: collapse; margin-top: 12px; }
+    td, th { border: 1px solid #8884; padding: 2px 8px; text-align: left; }
+    .muted { opacity: .7; }
+  </style>
+</head>
+<body>
+  <h1>OctoPage in the browser</h1>
+  <p class="muted">A read-only SQL query on a database kept in a public GitHub repository, run by
+    SQLite in this page, reading pages from GitHub's CDN as it needs them.</p>
+  <form id="form">
+    <label>Repository <input name="repo" placeholder="OWNER/NAME" required></label>
+    <label>Branch <input name="branch" value="main"></label>
+    <label>SQL <textarea name="sql">SELECT name FROM sqlite_schema</textarea></label>
+    <button>Run</button>
+  </form>
+  <p id="status" class="muted"></p>
+  <div id="out"></div>
+  <script type="module">
+    import { openDatabase } from '../src/octopage.mjs';
+
+    const params = new URLSearchParams(location.search);
+    const form = document.getElementById('form');
+    const status = document.getElementById('status');
+    const out = document.getElementById('out');
+    for (const name of ['repo', 'branch', 'sql']) {
+      if (params.has(name)) form.elements[name].value = params.get(name);
+    }
+
+    // Values as JSON can hold them: blobs in base64, big integers as text.
+    const plain = (value) =>
+      value instanceof Uint8Array ? { blob: btoa(String.fromCharCode(...value)) }
+      : typeof value === 'bigint' ? value.toString()
+      : value;
+
+    function show({ columns, rows }) {
+      const table = document.createElement('table');
+      const head = table.insertRow();
+      for (const c of columns) head.appendChild(document.createElement('th')).textContent = c;
+      for (const row of rows) {
+        const tr = table.insertRow();
+        for (const v of row) tr.insertCell().textContent = JSON.stringify(plain(v));
+      }
+      out.replaceChildren(table);
+    }
+
+    async function run() {
+      const started = performance.now();
+      status.textContent = 'Opening…';
+      const db = await openDatabase({
+        repo: form.elements.repo.value,
+        branch: form.elements.branch.value || 'main',
+        commit: params.get('commit') ?? undefined,
+        raw: params.get('raw') ?? undefined,
+        api: params.get('api') ?? undefined,
+        sqlite: params.get('sqlite') ?? undefined,
+        cache: params.get('cache') === 'false' ? false : undefined,
+      });
+      const result = await db.query(form.elements.sql.value);
+      const stats = await db.stats();
+      show(result);
+      status.textContent = `${db.repo} at ${db.commit.slice(0, 12)}: ${result.rows.length} rows in ` +
+        `${Math.round(performance.now() - started)} ms; ${stats.fetched} pages fetched, ${stats.hits} from the cache`;
+      await db.close();
+      return { repo: db.repo, commit: db.commit, columns: result.columns,
+               rows: result.rows.map((row) => row.map(plain)), stats };
+    }
+
+    async function runAndReport() {
+      let report;
+      try {
+        report = { ok: true, ...(await run()) };
+      } catch (error) {
+        status.textContent = `Error: ${error.message}`;
+        report = { ok: false, error: error.message };
+      }
+      if (params.has('report')) {
+        await fetch(params.get('report'), { method: 'POST', body: JSON.stringify(report) });
+      }
+    }
+
+    form.addEventListener('submit', (event) => { event.preventDefault(); runAndReport(); });
+    if (params.has('repo') && params.has('sql')) runAndReport();
+  </script>
+</body>
+</html>

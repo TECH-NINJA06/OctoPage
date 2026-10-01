@@ -1,0 +1,26 @@
+{
+  "name": "@octopage/client",
+  "version": "0.1.0",
+  "description": "Client for the OctoPage service: SQL on databases kept in your GitHub repositories, from any JavaScript runtime",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "sideEffects": false,
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "node --test test/client.test.mjs"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
+}

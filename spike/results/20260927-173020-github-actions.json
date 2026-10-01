@@ -1,0 +1,2203 @@
+{
+ "meta": {
+  "spike_version": "0.1.0",
+  "region": "github-actions",
+  "target": "github.com/TECH-NINJA06/octopage-spike",
+  "started_utc": "2026-09-27T17:30:20Z",
+  "python": "3.12.3",
+  "git": "git version 2.55.0",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "reps": {
+   "push": {
+    "1": [
+     30,
+     10
+    ],
+    "100": [
+     15,
+     5
+    ],
+    "5000": [
+     4,
+     1
+    ]
+   },
+   "ref_read": 30,
+   "fetch": {
+    "1": [
+     30,
+     10
+    ],
+    "64": [
+     15,
+     5
+    ],
+    "512": [
+     5,
+     2
+    ],
+    "2048": [
+     2,
+     0
+    ]
+   },
+   "raw_cdn": 40,
+   "rest": {
+    "get": 30,
+    "ff": 10,
+    "reject": 5
+   },
+   "race": {
+    "trials": 10,
+    "cas_exact": 2,
+    "stale": 10
+   }
+  },
+  "finished_utc": "2026-09-27T17:32:53Z"
+ },
+ "info": {
+  "rate_limit_before": {
+   "limit": 5000,
+   "used": 0,
+   "remaining": 5000,
+   "reset": 1790533820
+  },
+  "receive_pack_capabilities": [
+   "report-status",
+   "report-status-v2",
+   "delete-refs",
+   "side-band-64k",
+   "ofs-delta",
+   "atomic",
+   "object-format=sha1",
+   "quiet",
+   "agent=github/spokes-receive-pack-687be0241dd8aec81f41d987816db233191a3f99",
+   "session-id=7019:EB871:4949F08:6042CE0:6AB952AD",
+   "push-options"
+  ],
+  "rest_ratelimit_after_ref_reads": {
+   "x-ratelimit-limit": "5000",
+   "x-ratelimit-remaining": "4970",
+   "x-ratelimit-reset": "1790533890",
+   "x-ratelimit-used": "30",
+   "x-ratelimit-resource": "core"
+  },
+  "upload_pack_v2_capabilities": [
+   "agent=git/github-24808ea0b646-Linux",
+   "ls-refs=unborn",
+   "fetch=shallow wait-for-done filter",
+   "server-option",
+   "object-format=sha1"
+  ],
+  "rest_core_limit": 5000,
+  "rest_core_used_by_rest_suite": 0
+ },
+ "cases": {
+  "push/raw/1": {
+   "stats": {
+    "n": 30,
+    "p50": 726.0,
+    "p95": 810.2,
+    "min": 651.7,
+    "max": 843.6,
+    "mean": 726.2
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 700.13,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 4.2
+    },
+    {
+     "ms": 843.64,
+     "fresh": false,
+     "pack_kb": 4.8,
+     "build_ms": 2.4
+    },
+    {
+     "ms": 693.97,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.4
+    },
+    {
+     "ms": 657.81,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 703.78,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.4
+    },
+    {
+     "ms": 670.38,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 762.87,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 665.47,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.3
+    },
+    {
+     "ms": 740.92,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 781.76,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 732.38,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.4
+    },
+    {
+     "ms": 684.66,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 657.09,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 749.96,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 682.31,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 720.13,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.4
+    },
+    {
+     "ms": 759.21,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 734.08,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.6
+    },
+    {
+     "ms": 651.68,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 705.13,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 3.2
+    },
+    {
+     "ms": 751.66,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 710.21,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.4
+    },
+    {
+     "ms": 739.21,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.4
+    },
+    {
+     "ms": 723.64,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 820.55,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.4
+    },
+    {
+     "ms": 728.4,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.6
+    },
+    {
+     "ms": 770.05,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 797.61,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.5
+    },
+    {
+     "ms": 703.22,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.6
+    },
+    {
+     "ms": 743.53,
+     "fresh": false,
+     "pack_kb": 4.7,
+     "build_ms": 2.4
+    }
+   ]
+  },
+  "push/cli/1": {
+   "stats": {
+    "n": 10,
+    "p50": 976.5,
+    "p95": 1017.1,
+    "min": 960.6,
+    "max": 1023.2,
+    "mean": 983.2
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 977.32,
+     "fresh": false
+    },
+    {
+     "ms": 963.9,
+     "fresh": false
+    },
+    {
+     "ms": 975.67,
+     "fresh": false
+    },
+    {
+     "ms": 960.65,
+     "fresh": false
+    },
+    {
+     "ms": 996.13,
+     "fresh": false
+    },
+    {
+     "ms": 970.44,
+     "fresh": false
+    },
+    {
+     "ms": 1023.25,
+     "fresh": false
+    },
+    {
+     "ms": 992.53,
+     "fresh": false
+    },
+    {
+     "ms": 962.01,
+     "fresh": false
+    },
+    {
+     "ms": 1009.62,
+     "fresh": false
+    }
+   ]
+  },
+  "push/raw/100": {
+   "stats": {
+    "n": 15,
+    "p50": 857.5,
+    "p95": 890.4,
+    "min": 731.5,
+    "max": 893.2,
+    "mean": 838.7
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 864.37,
+     "fresh": false,
+     "pack_kb": 408.7,
+     "build_ms": 3.6
+    },
+    {
+     "ms": 893.25,
+     "fresh": false,
+     "pack_kb": 410.0,
+     "build_ms": 4.1
+    },
+    {
+     "ms": 857.55,
+     "fresh": false,
+     "pack_kb": 410.6,
+     "build_ms": 4.6
+    },
+    {
+     "ms": 866.15,
+     "fresh": false,
+     "pack_kb": 411.6,
+     "build_ms": 4.2
+    },
+    {
+     "ms": 731.51,
+     "fresh": false,
+     "pack_kb": 411.3,
+     "build_ms": 5.0
+    },
+    {
+     "ms": 864.0,
+     "fresh": false,
+     "pack_kb": 411.3,
+     "build_ms": 4.9
+    },
+    {
+     "ms": 826.49,
+     "fresh": false,
+     "pack_kb": 411.3,
+     "build_ms": 4.6
+    },
+    {
+     "ms": 781.05,
+     "fresh": false,
+     "pack_kb": 412.3,
+     "build_ms": 5.3
+    },
+    {
+     "ms": 841.04,
+     "fresh": false,
+     "pack_kb": 412.3,
+     "build_ms": 5.3
+    },
+    {
+     "ms": 851.93,
+     "fresh": false,
+     "pack_kb": 411.6,
+     "build_ms": 5.2
+    },
+    {
+     "ms": 810.58,
+     "fresh": false,
+     "pack_kb": 411.7,
+     "build_ms": 5.1
+    },
+    {
+     "ms": 871.33,
+     "fresh": false,
+     "pack_kb": 412.0,
+     "build_ms": 5.1
+    },
+    {
+     "ms": 889.12,
+     "fresh": false,
+     "pack_kb": 413.6,
+     "build_ms": 5.1
+    },
+    {
+     "ms": 766.39,
+     "fresh": false,
+     "pack_kb": 412.0,
+     "build_ms": 5.0
+    },
+    {
+     "ms": 866.01,
+     "fresh": false,
+     "pack_kb": 412.8,
+     "build_ms": 5.7
+    }
+   ]
+  },
+  "push/cli/100": {
+   "stats": {
+    "n": 5,
+    "p50": 1130.1,
+    "p95": 1315.6,
+    "min": 1060.4,
+    "max": 1353.3,
+    "mean": 1162.4
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 1060.42,
+     "fresh": false
+    },
+    {
+     "ms": 1164.78,
+     "fresh": false
+    },
+    {
+     "ms": 1103.13,
+     "fresh": false
+    },
+    {
+     "ms": 1353.33,
+     "fresh": false
+    },
+    {
+     "ms": 1130.11,
+     "fresh": false
+    }
+   ]
+  },
+  "push/raw/5000": {
+   "stats": {
+    "n": 4,
+    "p50": 1254.9,
+    "p95": 1397.3,
+    "min": 1067.9,
+    "max": 1418.7,
+    "mean": 1249.1
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 1067.87,
+     "fresh": false,
+     "pack_kb": 20248.6,
+     "build_ms": 76.8
+    },
+    {
+     "ms": 1418.7,
+     "fresh": false,
+     "pack_kb": 20318.5,
+     "build_ms": 159.0
+    },
+    {
+     "ms": 1234.05,
+     "fresh": false,
+     "pack_kb": 20354.1,
+     "build_ms": 186.2
+    },
+    {
+     "ms": 1275.78,
+     "fresh": false,
+     "pack_kb": 20390.7,
+     "build_ms": 201.2
+    }
+   ]
+  },
+  "push/cli/5000": {
+   "stats": {
+    "n": 1,
+    "p50": 1986.1,
+    "p95": 1986.1,
+    "min": 1986.1,
+    "max": 1986.1,
+    "mean": 1986.1
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 1986.14,
+     "fresh": false
+    }
+   ]
+  },
+  "ref-read/git-ls-refs": {
+   "stats": {
+    "n": 30,
+    "p50": 114.5,
+    "p95": 124.1,
+    "min": 103.9,
+    "max": 163.6,
+    "mean": 114.8
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 116.52,
+     "fresh": false
+    },
+    {
+     "ms": 108.13,
+     "fresh": false
+    },
+    {
+     "ms": 103.87,
+     "fresh": false
+    },
+    {
+     "ms": 116.12,
+     "fresh": false
+    },
+    {
+     "ms": 111.68,
+     "fresh": false
+    },
+    {
+     "ms": 112.25,
+     "fresh": false
+    },
+    {
+     "ms": 123.73,
+     "fresh": false
+    },
+    {
+     "ms": 115.84,
+     "fresh": false
+    },
+    {
+     "ms": 112.38,
+     "fresh": false
+    },
+    {
+     "ms": 123.66,
+     "fresh": false
+    },
+    {
+     "ms": 116.04,
+     "fresh": false
+    },
+    {
+     "ms": 124.47,
+     "fresh": false
+    },
+    {
+     "ms": 119.42,
+     "fresh": false
+    },
+    {
+     "ms": 103.96,
+     "fresh": false
+    },
+    {
+     "ms": 103.91,
+     "fresh": false
+    },
+    {
+     "ms": 120.48,
+     "fresh": false
+    },
+    {
+     "ms": 163.56,
+     "fresh": false
+    },
+    {
+     "ms": 118.67,
+     "fresh": false
+    },
+    {
+     "ms": 113.18,
+     "fresh": false
+    },
+    {
+     "ms": 115.97,
+     "fresh": false
+    },
+    {
+     "ms": 105.2,
+     "fresh": false
+    },
+    {
+     "ms": 119.88,
+     "fresh": false
+    },
+    {
+     "ms": 106.91,
+     "fresh": false
+    },
+    {
+     "ms": 107.74,
+     "fresh": false
+    },
+    {
+     "ms": 108.07,
+     "fresh": false
+    },
+    {
+     "ms": 116.21,
+     "fresh": false
+    },
+    {
+     "ms": 107.68,
+     "fresh": false
+    },
+    {
+     "ms": 108.04,
+     "fresh": false
+    },
+    {
+     "ms": 104.07,
+     "fresh": false
+    },
+    {
+     "ms": 115.83,
+     "fresh": false
+    }
+   ]
+  },
+  "ref-read/rest": {
+   "stats": {
+    "n": 29,
+    "p50": 148.0,
+    "p95": 197.5,
+    "min": 129.6,
+    "max": 231.7,
+    "mean": 160.1
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 305.23,
+     "fresh": true
+    },
+    {
+     "ms": 176.33,
+     "fresh": false
+    },
+    {
+     "ms": 143.44,
+     "fresh": false
+    },
+    {
+     "ms": 144.34,
+     "fresh": false
+    },
+    {
+     "ms": 180.02,
+     "fresh": false
+    },
+    {
+     "ms": 132.57,
+     "fresh": false
+    },
+    {
+     "ms": 148.03,
+     "fresh": false
+    },
+    {
+     "ms": 142.46,
+     "fresh": false
+    },
+    {
+     "ms": 180.98,
+     "fresh": false
+    },
+    {
+     "ms": 142.69,
+     "fresh": false
+    },
+    {
+     "ms": 172.3,
+     "fresh": false
+    },
+    {
+     "ms": 138.33,
+     "fresh": false
+    },
+    {
+     "ms": 195.67,
+     "fresh": false
+    },
+    {
+     "ms": 198.76,
+     "fresh": false
+    },
+    {
+     "ms": 179.45,
+     "fresh": false
+    },
+    {
+     "ms": 231.71,
+     "fresh": false
+    },
+    {
+     "ms": 166.82,
+     "fresh": false
+    },
+    {
+     "ms": 148.0,
+     "fresh": false
+    },
+    {
+     "ms": 177.07,
+     "fresh": false
+    },
+    {
+     "ms": 129.55,
+     "fresh": false
+    },
+    {
+     "ms": 183.58,
+     "fresh": false
+    },
+    {
+     "ms": 131.67,
+     "fresh": false
+    },
+    {
+     "ms": 134.95,
+     "fresh": false
+    },
+    {
+     "ms": 139.74,
+     "fresh": false
+    },
+    {
+     "ms": 136.58,
+     "fresh": false
+    },
+    {
+     "ms": 129.97,
+     "fresh": false
+    },
+    {
+     "ms": 136.8,
+     "fresh": false
+    },
+    {
+     "ms": 185.72,
+     "fresh": false
+    },
+    {
+     "ms": 162.07,
+     "fresh": false
+    },
+    {
+     "ms": 172.41,
+     "fresh": false
+    }
+   ]
+  },
+  "fetch/raw/1": {
+   "stats": {
+    "n": 30,
+    "p50": 117.9,
+    "p95": 132.6,
+    "min": 102.7,
+    "max": 134.9,
+    "mean": 118.3
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 134.88,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 124.78,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 122.46,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 120.07,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 115.83,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 115.52,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 128.29,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 124.21,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 111.35,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 120.1,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 108.55,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 122.56,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 111.89,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 120.01,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 107.72,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 133.44,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 127.45,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 114.65,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 107.59,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 128.53,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 102.67,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 108.12,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 112.14,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 115.88,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 121.85,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 106.13,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 128.04,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 131.56,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 107.97,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    },
+    {
+     "ms": 115.37,
+     "fresh": false,
+     "pack_kb": 4.0,
+     "deltas": 0
+    }
+   ]
+  },
+  "fetch/raw/64": {
+   "stats": {
+    "n": 15,
+    "p50": 138.7,
+    "p95": 199.3,
+    "min": 129.2,
+    "max": 247.5,
+    "mean": 148.6
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 247.48,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 178.61,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 129.25,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 138.4,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 143.75,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 134.99,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 155.18,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 150.28,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 141.43,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 133.37,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 138.72,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 143.55,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 130.62,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 129.16,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    },
+    {
+     "ms": 134.71,
+     "fresh": false,
+     "pack_kb": 256.9,
+     "deltas": 0
+    }
+   ]
+  },
+  "fetch/raw/512": {
+   "stats": {
+    "n": 5,
+    "p50": 276.3,
+    "p95": 331.1,
+    "min": 275.0,
+    "max": 338.4,
+    "mean": 293.4
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 338.43,
+     "fresh": false,
+     "pack_kb": 2055.0,
+     "deltas": 0
+    },
+    {
+     "ms": 301.56,
+     "fresh": false,
+     "pack_kb": 2055.0,
+     "deltas": 0
+    },
+    {
+     "ms": 276.3,
+     "fresh": false,
+     "pack_kb": 2055.0,
+     "deltas": 0
+    },
+    {
+     "ms": 275.03,
+     "fresh": false,
+     "pack_kb": 2055.0,
+     "deltas": 0
+    },
+    {
+     "ms": 275.6,
+     "fresh": false,
+     "pack_kb": 2055.0,
+     "deltas": 0
+    }
+   ]
+  },
+  "fetch/raw/2048": {
+   "stats": {
+    "n": 2,
+    "p50": 762.5,
+    "p95": 777.7,
+    "min": 745.6,
+    "max": 779.4,
+    "mean": 762.5
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 745.58,
+     "fresh": false,
+     "pack_kb": 8220.0,
+     "deltas": 0
+    },
+    {
+     "ms": 779.44,
+     "fresh": false,
+     "pack_kb": 8220.0,
+     "deltas": 0
+    }
+   ]
+  },
+  "fetch/cli/1": {
+   "stats": {
+    "n": 10,
+    "p50": 271.7,
+    "p95": 296.4,
+    "min": 252.5,
+    "max": 297.3,
+    "mean": 276.1
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 271.87,
+     "fresh": false
+    },
+    {
+     "ms": 271.47,
+     "fresh": false
+    },
+    {
+     "ms": 261.21,
+     "fresh": false
+    },
+    {
+     "ms": 293.46,
+     "fresh": false
+    },
+    {
+     "ms": 262.74,
+     "fresh": false
+    },
+    {
+     "ms": 252.52,
+     "fresh": false
+    },
+    {
+     "ms": 269.29,
+     "fresh": false
+    },
+    {
+     "ms": 295.28,
+     "fresh": false
+    },
+    {
+     "ms": 285.73,
+     "fresh": false
+    },
+    {
+     "ms": 297.31,
+     "fresh": false
+    }
+   ]
+  },
+  "fetch/cli/64": {
+   "stats": {
+    "n": 5,
+    "p50": 438.4,
+    "p95": 476.5,
+    "min": 384.0,
+    "max": 480.1,
+    "mean": 431.7
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 461.91,
+     "fresh": false
+    },
+    {
+     "ms": 393.9,
+     "fresh": false
+    },
+    {
+     "ms": 438.38,
+     "fresh": false
+    },
+    {
+     "ms": 480.11,
+     "fresh": false
+    },
+    {
+     "ms": 383.97,
+     "fresh": false
+    }
+   ]
+  },
+  "fetch/cli/512": {
+   "stats": {
+    "n": 2,
+    "p50": 771.4,
+    "p95": 776.0,
+    "min": 766.2,
+    "max": 776.5,
+    "mean": 771.4
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 766.21,
+     "fresh": false
+    },
+    {
+     "ms": 776.55,
+     "fresh": false
+    }
+   ]
+  },
+  "raw-cdn/first": {
+   "stats": {
+    "n": 40,
+    "p50": 131.3,
+    "p95": 214.3,
+    "min": 101.0,
+    "max": 230.1,
+    "mean": 138.8
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 113.33,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 230.06,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 135.98,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 148.94,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 141.4,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 116.85,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 151.64,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 128.15,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 204.02,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 150.88,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 106.48,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 141.97,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 145.76,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 138.25,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 105.6,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 105.31,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 112.2,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 106.15,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 117.22,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 167.62,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 127.21,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 101.03,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 105.17,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 168.91,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 222.46,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 147.32,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 213.9,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 126.67,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 132.71,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 145.01,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 126.94,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 129.84,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 128.64,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 128.62,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 120.13,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 139.26,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 144.83,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 124.23,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 132.67,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    },
+    {
+     "ms": 120.36,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "MISS"
+    }
+   ]
+  },
+  "raw-cdn/repeat": {
+   "stats": {
+    "n": 40,
+    "p50": 12.3,
+    "p95": 15.1,
+    "min": 11.5,
+    "max": 18.5,
+    "mean": 13.0
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 12.24,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 11.93,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.72,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 18.53,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 13.34,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.07,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 14.93,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.7,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.07,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 11.94,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.31,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 13.47,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 13.94,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.11,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.1,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.69,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 11.46,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.49,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.06,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.21,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 13.77,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 11.99,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.14,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.82,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 11.96,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 14.78,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.29,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 13.17,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 13.27,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.26,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.49,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 11.98,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.9,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 18.42,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.19,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 11.89,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.04,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 13.79,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 14.86,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    },
+    {
+     "ms": 12.25,
+     "fresh": false,
+     "status": 200,
+     "x_cache": "HIT"
+    }
+   ]
+  },
+  "ref-move/rest-ff": {
+   "stats": {
+    "n": 10,
+    "p50": 542.2,
+    "p95": 605.9,
+    "min": 502.7,
+    "max": 621.3,
+    "mean": 550.3
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 524.15,
+     "fresh": false
+    },
+    {
+     "ms": 569.96,
+     "fresh": false
+    },
+    {
+     "ms": 502.67,
+     "fresh": false
+    },
+    {
+     "ms": 519.69,
+     "fresh": false
+    },
+    {
+     "ms": 533.59,
+     "fresh": false
+    },
+    {
+     "ms": 550.79,
+     "fresh": false
+    },
+    {
+     "ms": 621.28,
+     "fresh": false
+    },
+    {
+     "ms": 579.89,
+     "fresh": false
+    },
+    {
+     "ms": 587.14,
+     "fresh": false
+    },
+    {
+     "ms": 514.24,
+     "fresh": false
+    }
+   ]
+  },
+  "ref-move/rest-reject": {
+   "stats": {
+    "n": 5,
+    "p50": 221.0,
+    "p95": 251.1,
+    "min": 204.1,
+    "max": 253.7,
+    "mean": 226.6
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 253.73,
+     "fresh": false
+    },
+    {
+     "ms": 204.05,
+     "fresh": false
+    },
+    {
+     "ms": 240.71,
+     "fresh": false
+    },
+    {
+     "ms": 221.03,
+     "fresh": false
+    },
+    {
+     "ms": 213.71,
+     "fresh": false
+    }
+   ]
+  },
+  "cas/race-winner": {
+   "stats": {
+    "n": 10,
+    "p50": 676.5,
+    "p95": 695.8,
+    "min": 640.5,
+    "max": 696.2,
+    "mean": 674.0
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 649.8,
+     "fresh": false,
+     "status": [
+      "ok refs/heads/octospike/20260927-173020-github-actions"
+     ]
+    },
+    {
+     "ms": 692.46,
+     "fresh": false,
+     "status": [
+      "ok refs/heads/octospike/20260927-173020-github-actions"
+     ]
+    },
+    {
+     "ms": 671.15,
+     "fresh": false,
+     "status": [
+      "ok refs/heads/octospike/20260927-173020-github-actions"
+     ]
+    },
+    {
+     "ms": 692.1,
+     "fresh": false,
+     "status": [
+      "ok refs/heads/octospike/20260927-173020-github-actions"
+     ]
+    },
+    {
+     "ms": 695.21,
+     "fresh": false,
+     "status": [
+      "ok refs/heads/octospike/20260927-173020-github-actions"
+     ]
+    },
+    {
+     "ms": 671.32,
+     "fresh": false,
+     "status": [
+      "ok refs/heads/octospike/20260927-173020-github-actions"
+     ]
+    },
+    {
+     "ms": 696.2,
+     "fresh": false,
+     "status": [
+      "ok refs/heads/octospike/20260927-173020-github-actions"
+     ]
+    },
+    {
+     "ms": 640.52,
+     "fresh": false,
+     "status": [
+      "ok refs/heads/octospike/20260927-173020-github-actions"
+     ]
+    },
+    {
+     "ms": 650.11,
+     "fresh": false,
+     "status": [
+      "ok refs/heads/octospike/20260927-173020-github-actions"
+     ]
+    },
+    {
+     "ms": 681.63,
+     "fresh": false,
+     "status": [
+      "ok refs/heads/octospike/20260927-173020-github-actions"
+     ]
+    }
+   ]
+  },
+  "cas/race-loser": {
+   "stats": {
+    "n": 10,
+    "p50": 767.7,
+    "p95": 784.4,
+    "min": 722.4,
+    "max": 785.5,
+    "mean": 763.3
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 757.93,
+     "fresh": false,
+     "status": [
+      "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at ab88faed80c1bb0e382ee94a036447f39286397e but expected ba515ecc991f6e4952a1dee43284d80e56ab4a78"
+     ]
+    },
+    {
+     "ms": 766.99,
+     "fresh": false,
+     "status": [
+      "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 08240c3b48170fd0725cdbfabf1291903c970be9 but expected ab88faed80c1bb0e382ee94a036447f39286397e"
+     ]
+    },
+    {
+     "ms": 754.66,
+     "fresh": false,
+     "status": [
+      "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 65aedb0e01a9e3b298dc9a5ee8b5b484c6d8054c but expected 08240c3b48170fd0725cdbfabf1291903c970be9"
+     ]
+    },
+    {
+     "ms": 783.09,
+     "fresh": false,
+     "status": [
+      "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at c7dd03d39f640d948cb3d860d35886153a576796 but expected 65aedb0e01a9e3b298dc9a5ee8b5b484c6d8054c"
+     ]
+    },
+    {
+     "ms": 785.53,
+     "fresh": false,
+     "status": [
+      "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at e180d263143422727e276054d93650af4d62eea8 but expected c7dd03d39f640d948cb3d860d35886153a576796"
+     ]
+    },
+    {
+     "ms": 773.1,
+     "fresh": false,
+     "status": [
+      "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at a1271171d2553ba0f533b6f83761dd074f7f5a92 but expected e180d263143422727e276054d93650af4d62eea8"
+     ]
+    },
+    {
+     "ms": 781.87,
+     "fresh": false,
+     "status": [
+      "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at c8b981b42fb373aa0d70fc819fa176b319c75277 but expected a1271171d2553ba0f533b6f83761dd074f7f5a92"
+     ]
+    },
+    {
+     "ms": 722.37,
+     "fresh": false,
+     "status": [
+      "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 1fd3bec59c407eaa1661d3de224ee3046f6a6945 but expected c8b981b42fb373aa0d70fc819fa176b319c75277"
+     ]
+    },
+    {
+     "ms": 738.6,
+     "fresh": false,
+     "status": [
+      "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 72c2752e478039bdefb56f5f162d1ab0fdd03873 but expected 1fd3bec59c407eaa1661d3de224ee3046f6a6945"
+     ]
+    },
+    {
+     "ms": 768.37,
+     "fresh": false,
+     "status": [
+      "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 15a02c707cc182135b4590f0825aaf74cf77a1ce but expected 72c2752e478039bdefb56f5f162d1ab0fdd03873"
+     ]
+    }
+   ]
+  },
+  "cas/reject-stale": {
+   "stats": {
+    "n": 10,
+    "p50": 658.1,
+    "p95": 712.5,
+    "min": 634.9,
+    "max": 722.8,
+    "mean": 664.7
+   },
+   "warm_only": true,
+   "samples": [
+    {
+     "ms": 637.16,
+     "fresh": false
+    },
+    {
+     "ms": 671.13,
+     "fresh": false
+    },
+    {
+     "ms": 658.04,
+     "fresh": false
+    },
+    {
+     "ms": 722.77,
+     "fresh": false
+    },
+    {
+     "ms": 663.1,
+     "fresh": false
+    },
+    {
+     "ms": 699.91,
+     "fresh": false
+    },
+    {
+     "ms": 651.26,
+     "fresh": false
+    },
+    {
+     "ms": 650.13,
+     "fresh": false
+    },
+    {
+     "ms": 634.88,
+     "fresh": false
+    },
+    {
+     "ms": 658.17,
+     "fresh": false
+    }
+   ]
+  }
+ },
+ "checks": {
+  "ref-read/ls-refs-returns-head": {
+   "passed": true,
+   "details": []
+  },
+  "ref-read/rest-returns-head": {
+   "passed": true,
+   "details": []
+  },
+  "fetch/raw-1-verified": {
+   "passed": true,
+   "details": []
+  },
+  "fetch/raw-64-verified": {
+   "passed": true,
+   "details": []
+  },
+  "fetch/raw-512-verified": {
+   "passed": true,
+   "details": []
+  },
+  "fetch/raw-2048-verified": {
+   "passed": true,
+   "details": []
+  },
+  "fetch/cli-1-verified": {
+   "passed": true,
+   "details": []
+  },
+  "fetch/cli-64-verified": {
+   "passed": true,
+   "details": []
+  },
+  "fetch/cli-512-verified": {
+   "passed": true,
+   "details": []
+  },
+  "raw-cdn/serves-correct-bytes": {
+   "passed": true,
+   "details": []
+  },
+  "ref-move/rest-ff-accepted": {
+   "passed": true,
+   "details": []
+  },
+  "ref-move/rest-stale-rejected": {
+   "passed": true,
+   "details": [
+    "HTTP 422",
+    "HTTP 422",
+    "HTTP 422",
+    "HTTP 422",
+    "HTTP 422"
+   ]
+  },
+  "cas/race-exactly-one-winner": {
+   "passed": true,
+   "details": [
+    "winners=1",
+    "winners=1",
+    "winners=1",
+    "winners=1",
+    "winners=1",
+    "winners=1",
+    "winners=1",
+    "winners=1",
+    "winners=1",
+    "winners=1"
+   ]
+  },
+  "cas/server-verifies-expected-old": {
+   "passed": true,
+   "details": [
+    "unpack ok; ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 15a02c707cc182135b4590f0825aaf74cf77a1ce but expected 5dec837d821d9c10f1f7bb900d12deab8f258e59",
+    "unpack ok; ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 15a02c707cc182135b4590f0825aaf74cf77a1ce but expected 5dec837d821d9c10f1f7bb900d12deab8f258e59"
+   ]
+  },
+  "cas/stale-push-rejected": {
+   "passed": true,
+   "details": [
+    "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at a166e6fffe06762bab9e0511942efecadedf78e6 but expected 15a02c707cc182135b4590f0825aaf74cf77a1ce",
+    "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 0df8497269c71a9b5d5827361be57c5beba0da36 but expected a166e6fffe06762bab9e0511942efecadedf78e6",
+    "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 4f564409f4215db3117724faa4de7f3b561a5517 but expected 0df8497269c71a9b5d5827361be57c5beba0da36",
+    "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at f485ca861d60f8f4af1f6a4cb02d0210762c8832 but expected 4f564409f4215db3117724faa4de7f3b561a5517",
+    "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at dcc181ea87376212ff79a3cf17e366790ec0442d but expected f485ca861d60f8f4af1f6a4cb02d0210762c8832",
+    "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 0e6c3cf85ffd3d5c649fb138613bc3b299936d72 but expected dcc181ea87376212ff79a3cf17e366790ec0442d",
+    "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 3177472886a1b6c3235a412c4cd22c1521279130 but expected 0e6c3cf85ffd3d5c649fb138613bc3b299936d72",
+    "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 44865e92915b7e4fb1d7d00bf4f07fba578cd254 but expected 3177472886a1b6c3235a412c4cd22c1521279130",
+    "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 3099eb5bb8741bc160f21ed9788cf7f2a3708ed3 but expected 44865e92915b7e4fb1d7d00bf4f07fba578cd254",
+    "ng refs/heads/octospike/20260927-173020-github-actions cannot lock ref 'refs/heads/octospike/20260927-173020-github-actions': is at 389bbff658ff507d9929f2b93657ae078cdca75f but expected 3099eb5bb8741bc160f21ed9788cf7f2a3708ed3"
+   ]
+  },
+  "refs/custom-namespace-push": {
+   "passed": true,
+   "details": [
+    "refs/octopage/stage/20260927-173020-github-actions-refs: Done",
+    "refs/octopage/lease-20260927-173020-github-actions: Done"
+   ]
+  },
+  "refs/custom-namespace-listed": {
+   "passed": true,
+   "details": [
+    "refs/octopage/stage/20260927-173020-github-actions-refs",
+    "refs/octopage/lease-20260927-173020-github-actions"
+   ]
+  },
+  "refs/custom-namespace-rest-read": {
+   "passed": true,
+   "details": [
+    "refs/octopage/stage/20260927-173020-github-actions-refs: HTTP 200",
+    "refs/octopage/lease-20260927-173020-github-actions: HTTP 200"
+   ]
+  },
+  "refs/custom-namespace-delete": {
+   "passed": true,
+   "details": [
+    "refs/octopage/stage/20260927-173020-github-actions-refs",
+    "refs/octopage/lease-20260927-173020-github-actions"
+   ]
+  }
+ },
+ "errors": {}
+}

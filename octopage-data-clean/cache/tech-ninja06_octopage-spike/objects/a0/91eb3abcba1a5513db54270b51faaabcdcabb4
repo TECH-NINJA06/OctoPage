@@ -1,0 +1,13 @@
+{
+  "format": "octopage-changelog-1",
+  "now": 1790865092687,
+  "seed": "604837800bb13792",
+  "statements": [
+    {
+      "sql": "CREATE TABLE notes (\n  id INTEGER PRIMARY KEY,\n  body TEXT NOT NULL\n);"
+    },
+    {
+      "sql": "INSERT INTO notes(body)\nVALUES ('OctoPage is working');"
+    }
+  ]
+}
