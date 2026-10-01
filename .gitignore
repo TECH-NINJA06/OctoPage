@@ -13,11 +13,6 @@ node_modules/
 *.test
 *.test.*
 
-# Documentation and nested README files
-**/docs/
-**/README*
-!/README.md
-
 # Build output
 sdk/typescript/dist/
 web/dashboard/dist/
