@@ -1,9 +1,5 @@
 name: deploy
 
-# Deploy the service (and its dashboard) to Fly.io: by hand, or from the release workflow.
-# Needs the repository secret FLY_API_TOKEN (`fly tokens create deploy`). The app, its volume
-# and its secrets are made once by hand: docs/deploy.md.
-
 on:
   workflow_dispatch:
   workflow_call:

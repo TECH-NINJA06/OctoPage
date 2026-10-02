@@ -1,14 +1,5 @@
 name: release
 
-# A tag `vX.Y.Z` builds everything that ships, with checksums, into a draft GitHub release;
-# then, if the repository variable PUBLISH is "true", publishes the Python and npm packages and
-# deploys the service.
-#
-# Publishing is off until the product's name and license are settled: the packages are marked
-# private (npm "private", PyPI "Private :: Do Not Upload"), so a publish now would be refused.
-# docs/release.md lists what to change, and the secrets: NPM_TOKEN, PyPI trusted publishing,
-# FLY_API_TOKEN. (crates.io comes after that: the crates are `publish = false` for now.)
-
 on:
   push:
     tags: ['v*']
