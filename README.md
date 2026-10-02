@@ -1,42 +1,63 @@
 # OctoPage
 
-An embedded relational database whose only storage device is a GitHub repository: every 4 KB page is a git
-blob, every committed transaction is a git commit, and the database head is a git ref.
+OctoPage is an embedded relational database that uses a GitHub repository as its
+storage layer. It provides SQL, transactions, branching, time-travel queries,
+and database tooling while storing database state in ordinary Git objects.
 
-- Design: `OctoPage Relational DB Engine on GitHub Block Storage — Specification.pdf`
-- Build plan (phases 0–9), tech stack and hosting: [ROADMAP.md](ROADMAP.md)
-- Phase 0 (transport spike): findings in [spike/REPORT.md](spike/REPORT.md).
-- Phase 1 (git object layer and transport): `crates/octopage-git`.
-- Phase 2 (page store): `crates/octopage-pagestore`, `crates/octopage-kv`. Gate passed on github.com.
-- Engine decision: SQL runs on SQLite, through a VFS on the page store
-  ([spike/sqlite_vfs/REPORT.md](spike/sqlite_vfs/REPORT.md)).
-- Phase 3 (production SQLite VFS): `crates/octopage-sqlite`. Gate passed in memory with fault injection and on
-  real git.
-- Phase 4 (engine API and shell): `crates/octopage`, `crates/octopage-cli`. Gate passed: SQLite's logic tests
-  (9,221 queries) on one connection.
-- Phase 5 (transactions): deterministic re-execution, statement-list transactions, changelog replay, and the
-  advisory writer lease. Gate passed: the logic tests in transactions, and bank transfers that stay
-  serializable (checked by replaying the whole history).
-- Phase 6 (security, compression, branching): encrypted databases (passphrase, recovery key, key providers),
-  compression, branches and merges, push-protection reports, signed commits. Gate passed.
-- Phase 7 (operations): `crates/octopage-ops`.
-  - Generation rollover to a new repository, with retention.
-  - A maintenance workflow for GitHub Actions: staging cleanup, integrity scans, size projection, retiring old
-    generations.
-  - `fsck`, `stats`, `reconcile`, `settings`, `migrate --page-size`.
-  - The 800 MB live-size limit, and push webhooks.
-  - Gate passed: two rollovers under running writers and readers, with no client errors.
-- Phase 8 (bindings and the service):
-  - Python (`crates/octopage-python`), Node (`crates/octopage-node`) and C (`crates/octopage-ffi`) bindings;
-  - `crates/octopage-server`, the multi-tenant HTTP API behind a GitHub App;
-  - `web/octopage-browser`, read-only SQL in the browser on public repositories.
-  - Gate passed on the local git server: the same SQL suite through Rust, Python, Node and HTTP; two tenants
-    isolated; a browser querying a dataset. Not yet run against github.com.
-- Phase 9 (the hosted service), built and tested locally:
-  - the dashboard (`web/dashboard`), served by the service;
-  - HTTP client SDKs (`sdk/typescript`, `sdk/python`);
-  - deployment to Fly.io (`Dockerfile`, `fly.toml`) and release workflows;
-  - Not yet deployed. The gate, three pilot users for 30 days, is ahead.
+## What it does
+
+OctoPage is designed for applications that want a database with GitHub's
+durability, access controls, audit trail, and collaboration model. It turns
+database activity into Git history:
+
+- Database pages are stored as Git blobs.
+- A committed transaction is represented by a Git commit.
+- The current database state is identified by a Git ref.
+- Changelogs make transactions reproducible and support replay and historical
+  reads.
+- SQLite provides the SQL engine through a custom virtual file system (VFS).
+
+This makes the repository both the database backend and a transparent history
+of its changes. Existing GitHub permissions and repository workflows can be
+used to control access, inspect changes, and automate maintenance.
+
+## How it works
+
+When a client opens a database, OctoPage connects to a GitHub repository or a
+Git-compatible remote and reads the database page map from the selected branch.
+SQL is executed by SQLite, while the OctoPage VFS translates SQLite page reads
+and writes into operations on Git-backed pages.
+
+A write transaction reads a consistent snapshot, records the statements and
+their deterministic inputs, and stages changed pages. OctoPage then creates a
+Git commit and advances the database ref. If another writer commits first, the
+transaction is checked and replayed against the newer state before it is
+committed. This provides serializable writes without requiring a separate
+database server.
+
+Reads can target the current head or a historical commit with `AS OF`. Branches
+provide isolated database histories that can later be merged. Encrypted
+databases protect pages, schema information, and changelogs before they are
+written to the repository.
+
+## Main components
+
+- **Rust database engine:** SQLite integration, page storage, transactions,
+  changelogs, branching, encryption, and GitHub transport.
+- **Command-line shell:** Run SQL, inspect history, create branches, manage
+  encryption, and perform maintenance.
+- **Language bindings:** Use the database from Rust, Python, Node.js, or C.
+- **HTTP service:** Expose databases through a multi-tenant API backed by a
+  GitHub App, with API keys, reader pools, and queued writes.
+- **Browser client:** Run read-only SQL against public repositories using
+  SQLite compiled to WebAssembly and GitHub's raw-content CDN.
+- **Dashboard and SDKs:** Provide a web interface and TypeScript/Python clients
+  for the hosted service.
+
+The repository is also useful as a development reference: the [project
+layout](#layout) shows where the engine, bindings, service, browser client,
+dashboard, and SDKs live. Design notes and implementation investigations are
+kept separately from this user guide in the repository.
 
 ## The `octopage` shell
 
